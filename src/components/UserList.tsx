@@ -65,14 +65,14 @@ const UserList = () => {
 
                     {/* Loading State */}
                     {loading && (
-                        <Box display="flex" justifyContent="center" my={3}>
+                        <Box display="flex" justifyContent="center" >
                             <CircularProgress />
                         </Box>
                     )}
 
                     {/* Error Message */}
                     {error && (
-                        <Alert severity="error" sx={{ mb: 3 }}>
+                        <Alert severity="error" >
                             Failed to load users: {error}
                         </Alert>
                     )}
