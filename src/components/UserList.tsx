@@ -54,6 +54,12 @@ const UserList = () => {
                             variant="outlined"
                             margin="normal"
                             onChange={(e) => setSearchTerm(e.target.value)}
+                            sx={{
+                                width: "300px", 
+                                "& .MuiInputLabel-root": {
+                                  fontSize: "14px", // Adjust label size if needed
+                                }
+                              }}
                         />
                     </Box>
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
-import { Box, Container, Paper } from "@mui/material";
+import { Box, Container } from "@mui/material";
 
 // Import Swiper styles
 import "swiper/css";
@@ -27,41 +27,32 @@ const Carousel: React.FC = () => {
           width: "100%",
         }}
       >
-        <Paper
-          elevation={4}
-          sx={{
-            overflow: "hidden",
-            width: "100%",
-            maxWidth: 1400,
-          }}
+        <Swiper
+          // spaceBetween={50}
+          effect={"fade"}
+          navigation
+          pagination={{ clickable: true }}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          modules={[Autoplay, EffectFade, Navigation, Pagination]}
+          className="mySwiper"
+          style={{ width: "100%", height: "100%" }}
         >
-          <Swiper
-            // spaceBetween={50}
-            effect={"fade"}
-            navigation
-            pagination={{ clickable: true }}
-            autoplay={{ delay: 3000, disableOnInteraction: false }}
-            modules={[Autoplay, EffectFade, Navigation, Pagination]}
-            className="mySwiper"
-            style={{ width: "100%", height: "100%" }}
-          >
-            {images.map((image, index) => (
-              <SwiperSlide key={index}>
-                <img
-                  src={image}
-                  alt={`Slide ${index + 1}`}
-                  style={{
-                    width: "100%",
-                    height: "450px",
-                    objectFit: "cover",
-                    borderRadius: "4px",
-                  }}
-                  loading="lazy"
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </Paper>
+          {images.map((image, index) => (
+            <SwiperSlide key={index}>
+              <img
+                src={image}
+                alt={`Slide ${index + 1}`}
+                style={{
+                  width: "100%",
+                  height: "450px",
+                  objectFit: "cover",
+                  borderRadius: "4px",
+                }}
+                loading="lazy"
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </Box>
     </Container>
   );
